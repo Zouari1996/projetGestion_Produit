@@ -1,0 +1,32 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>List produit</h4>
+      <a routerLink="/produit/create" class="btn btn-success">Ajouter Produit</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Designation</th>
+        <th>Code</th>
+        <th>Categorie</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let produit of produits">
+        <td>{{ produit.id }}</td>
+        <td>{{ produit.nom }}</td>
+        <td>{{ produit.designation }}</td>
+        <td>{{ produit.code }}</td>
+        <td>{{ produit.nomCategorie}}</td>
+
+        <td>
+          <a href="#" [routerLink]="['/produit/', 'edit', produit.id  ]" class="btn btn-primary">Modifier</a>
+          <button type="button" (click)="deletePerson(produit.id)" class="btn btn-danger">Supprimer</button>
+        </td>
+      </tr>
+    </table>
+ </section>

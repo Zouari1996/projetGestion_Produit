@@ -1,0 +1,62 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Ajouter Produit</h4>
+      <a href="#" routerLink="/produit/index" class="btn btn-primaryt">En arrière</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Nom :</label>
+                <input
+                  formControlName="nom"
+                  id="nom"
+                  type="text"
+                  class="form-control">
+           
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Designation :</label>
+                <input
+                  formControlName="designation"
+                  id="designation"
+                  type="text"
+                  class="form-control">
+              
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Code :</label>
+                <input
+                  formControlName="code"
+                  id="code"
+                  type="text"
+                  class="form-control">
+        
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Categorie :</label>
+          <select   formControlName="categorie_id"  id="categorie_id"    class="form-control">
+            <option *ngFor="let categorie of categories" [ngValue]="categorie.id">
+                {{categorie.nomCategorie}}
+            </option>
+        </select>
+        </div>
+        </div>
+  
+          <button class="btn btn-primary" type="submit" [disabled]="form.valid">Submit</button>
+      </form>
+  </div>
+  

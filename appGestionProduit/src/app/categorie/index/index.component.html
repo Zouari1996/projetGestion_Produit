@@ -1,0 +1,28 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>liste Catégorie </h4>
+      <a routerLink="/categorie/create" class="btn btn-success">Ajouter Categorie</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Description</th>
+       
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let categorie of categories ">
+        <td>{{ categorie.id }}</td>
+        <td>{{ categorie.nomCategorie }}</td>
+        <td>{{ categorie.description }}</td>
+        <td>
+          <a href="#" [routerLink]="['/categorie/', 'edit', categorie.id  ]" class="btn btn-primary">Modifier</a>
+          <button type="button" (click)="deleteCategorie(categorie.id)" class="btn btn-danger">Supprimer</button>
+        </td>
+      </tr>
+    </table>
+ </section>

@@ -1,0 +1,66 @@
+
+<div class="container">
+  
+    <div class="d-flex justify-content-between">
+      <h4>Modifier Produit</h4>
+      <a href="#" routerLink="/produit/index" class="btn btn-primaryt">En arrière</a>
+    </div>
+​
+    <hr>
+​
+    <form [formGroup]="form" (ngSubmit)="submit()">
+​
+​
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Nom:</label>
+              <input
+                formControlName="nom"
+                [(ngModel)] ="produit.nom"
+                id="nom"
+                type="text"
+                class="form-control">
+          
+            </div>
+        </div>
+​
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Designation :</label>
+              <input
+                formControlName="designation"
+                [(ngModel)]="produit.designation"
+                id="designation"
+                type="text"
+                class="form-control">
+          
+            </div>
+        </div>
+​
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Code:</label>
+              <input
+                [(ngModel)]="produit.code"
+                formControlName="code"
+                id="code"
+                type="text"
+                class="form-control">
+         
+            </div>
+        </div>
+
+          ​<div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Categorie :</label>
+          <select    [(ngModel)]="produit.categorie_id" formControlName="categorie_id"  id="categorie_id"    class="form-control">
+            <option *ngFor="let categorie of categories" [ngValue]="categorie.id">
+                {{categorie.nomCategorie}}
+            </option>
+          </select>
+          </div>
+          </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="form.valid">Update</button>
+    </form>
+</div>
